@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Cheyyar Hub</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root{
+  --bg:#050609;
+  --card:#101218;
+  --card-2:#14171f;
+  --glass:rgba(255,255,255,.045);
+  --glass-strong:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.075);
+  --border-light:rgba(255,255,255,.14);
+  --text:#f6f7fb;
+  --text-soft:#a9aeba;
+  --text-muted:#6c7280;
+  --primary:#ff5c35;
+  --primary-2:#ff8a52;
+  --primary-glow:rgba(255,92,53,.35);
+  --purple:#8b5cf6;
+  --gold:#e8c78a;
+  --radius-lg:26px;
+  --radius:20px;
+  --shadow:0 24px 70px rgba(0,0,0,.45);
+  --shadow-soft:0 10px 30px rgba(0,0,0,.3);
+  --inner-highlight:inset 0 1px 0 rgba(255,255,255,.05);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;min-height:100%;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
+body{overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,.brand-word,.start-title{font-family:'Space Grotesk',sans-serif}
+
+.bg{position:fixed;inset:0;z-index:-3;
+  background:
+    radial-gradient(circle at 12% -4%, rgba(255,92,53,.11), transparent 30%),
+    radial-gradient(circle at 92% 8%, rgba(139,92,246,.09), transparent 32%),
+    radial-gradient(circle at 50% 100%, rgba(232,199,138,.04), transparent 40%),
+    var(--bg)}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.32;z-index:-2;animation:float 10s ease-in-out infinite alternate}
+.o1{width:280px;height:280px;background:var(--primary);top:-100px;left:-70px}
+.o2{width:280px;height:280px;background:var(--purple);right:-80px;bottom:-90px;animation-delay:2s}
+@keyframes float{to{transform:translate(60px,-40px) scale(1.15)}}
+.particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.particle{position:absolute;width:2px;height:2px;background:var(--primary-2);border-radius:50%;animation:rise linear infinite;opacity:.35}
+@keyframes rise{from{transform:translateY(100vh);opacity:0}20%{opacity:.4}80%{opacity:.2}to{transform:translateY(-10vh);opacity:0}}
+
+.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px}
+.panel{width:min(1050px,100%);min-height:650px;padding:45px 50px;border:1px solid var(--border-light);border-radius:34px;
+  background:linear-gradient(180deg,var(--card-2),var(--card));
+  backdrop-filter:blur(25px);box-shadow:var(--shadow),var(--inner-highlight);animation:in .9s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(30px) scale(.98)}to{opacity:1;transform:none}}
+
+.hero{text-align:center}
+.logo{width:82px;height:82px;border-radius:24px;margin:0 auto 16px;overflow:hidden;
+  box-shadow:0 0 40px var(--primary-glow), var(--inner-highlight);animation:bob 4s ease-in-out infinite;background:#0c0d12}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes bob{50%{transform:translateY(-7px) rotate(2deg)}}
+.welcome{font-size:10px;letter-spacing:5px;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px}
+h1{font-size:clamp(42px,7vw,70px);letter-spacing:-3px;line-height:.95;font-weight:700;
+  background:linear-gradient(90deg,var(--text),var(--primary-2),var(--text));background-size:200%;
+  -webkit-background-clip:text;color:transparent;animation:shine 4s linear infinite}
+@keyframes shine{to{background-position:200%}}
+.tag{max-width:520px;margin:16px auto 0;color:var(--text-soft);line-height:1.6;font-size:15px}
+.tag strong{color:var(--text)}
+.launch{display:inline-flex;gap:10px;align-items:center;margin-top:24px;padding:14px 26px;border-radius:100px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;text-decoration:none;font-weight:700;font-size:13px;
+  box-shadow:0 10px 28px var(--primary-glow), var(--inner-highlight);transition:.3s var(--ease)}
+.launch:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 16px 36px var(--primary-glow)}
+
+.team{margin-top:46px;text-align:center}
+.team-label{font-size:10px;letter-spacing:4px;color:var(--text-muted);text-transform:uppercase}
+.team h2{font-size:28px;margin:7px 0 5px;font-weight:700}
+.team-sub{color:var(--text-muted);font-size:12px}
+.dev-grid{display:grid;grid-template-columns:1fr;max-width:270px;margin:22px auto 0;gap:15px}
+.dev{padding:22px 14px;border:1px solid var(--border);border-radius:21px;background:var(--glass);transition:.35s var(--ease)}
+.dev:hover{transform:translateY(-6px);background:var(--glass-strong);border-color:var(--border-light);box-shadow:var(--shadow-soft)}
+.avatar{width:52px;height:52px;border-radius:50%;margin:0 auto 10px;
+  background:linear-gradient(135deg,var(--primary),var(--purple));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+.dev h3{font-size:16px;margin-bottom:5px;font-weight:700}
+.role{font-size:11px;color:var(--text-muted)}
+.links{margin-top:10px}
+.links a{font-size:10px;color:var(--text-soft);text-decoration:none;margin:0 6px}
+.links a:hover{color:var(--primary-2)}
+
+.bottom{margin-top:26px;text-align:center;color:var(--text-muted);font-size:9px;letter-spacing:1.5px}
+
+@media(max-width:700px){.page{padding:12px}.panel{padding:28px 16px;min-height:0;border-radius:25px}.logo{width:68px;height:68px;border-radius:19px}h1{letter-spacing:-2px}.tag{font-size:13px}.team{margin-top:32px}.team h2{font-size:23px}.bottom{margin-top:18px}}
+
+.music-btn{position:fixed;right:18px;top:18px;z-index:10;width:44px;height:44px;border:1px solid var(--border-light);border-radius:50%;
+  background:rgba(5,6,9,.5);backdrop-filter:blur(12px);color:var(--text);cursor:pointer;font-size:18px;box-shadow:var(--shadow-soft);transition:.25s}
+.music-btn:hover{transform:scale(1.08)}
+
+.start-screen{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(3,3,7,.94);backdrop-filter:blur(22px);transition:opacity .6s,visibility .6s}
+.start-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
+.start-card{text-align:center;width:min(430px,100%);padding:42px 28px;border:1px solid var(--border-light);border-radius:30px;
+  background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:var(--shadow);animation:in .8s var(--ease)}
+.start-logo{width:76px;height:76px;border-radius:22px;margin:0 auto 18px;overflow:hidden;box-shadow:0 0 40px var(--primary-glow)}
+.start-logo img{width:100%;height:100%;object-fit:cover;display:block}
+.start-small{font-size:10px;letter-spacing:5px;color:var(--text-muted);margin-bottom:8px}
+.start-title{font-size:clamp(32px,9vw,48px);font-weight:700;letter-spacing:-2px}
+.start-card p{margin:14px 0 22px;color:var(--text-soft);font-size:13px}
+.start-card button{border:0;border-radius:100px;padding:14px 30px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;font-weight:700;cursor:pointer;font-size:13px;
+  box-shadow:0 10px 28px var(--primary-glow);transition:.25s var(--ease)}
+.start-card button:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 36px var(--primary-glow)}
+</style>
+</head>
+<body>
+<audio id="bgMusic" loop playsinline preload="auto">
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+<div class="start-screen" id="startScreen">
+  <div class="start-card">
+    <div class="start-logo"><img src="logo.png" alt="Cheyyar Hub logo"></div>
+    <div class="start-small">WELCOME TO</div>
+    <div class="start-title">CHEYYAR HUB</div>
+    <p>Tap to enter the community</p>
+    <button id="startBtn">ENTER ↗</button>
+  </div>
+</div>
+
+<button class="music-btn" id="musicBtn" aria-label="Toggle music">🔈</button>
+<div class="bg"></div><div class="orb o1"></div><div class="orb o2"></div><div class="particles" id="particles"></div>
+
+<main class="page">
+<section class="panel">
+<div class="hero">
+<div class="logo"><img src="logo.png" alt="Cheyyar Hub logo"></div>
+<div class="welcome">Welcome to</div>
+<h1>CHEYYAR HUB</h1>
+<p class="tag">Welcome to Cheyyar Hub — your local community, your people, your digital space.<br><strong>I'm Denesh, Founder of this application.</strong></p>
+<a class="launch" href="https://cheyyar-hub.vercel.app/" target="_blank">ENTER THE COMMUNITY ↗</a>
+</div>
+
+<div class="team">
+<div class="team-label">The Team</div>
+<h2>Meet the Developer</h2>
+<p class="team-sub">Built with passion, solo.</p>
+<div class="dev-grid">
+<div class="dev">
+  <div class="avatar">D</div>
+  <h3>Denesh</h3>
+  <p class="role">Founder • Developer</p>
+  <div class="links"><a href="https://www.instagram.com/devilcoderx_/" target="_blank">Instagram</a><a href="#">GitHub</a></div>
+</div>
+</div>
+</div>
+<div class="bottom">MADE WITH ❤️ FOR OUR COMMUNITY • 2026</div>
+</section>
+</main>
+
+<script>
+(function(){
+  const p=document.getElementById('particles');
+  for(let i=0;i<45;i++){
+    let x=document.createElement('i');
+    x.className='particle';
+    x.style.left=Math.random()*100+'%';
+    x.style.animationDuration=(6+Math.random()*9)+'s';
+    x.style.animationDelay=Math.random()*8+'s';
+    p.appendChild(x);
+  }
+
+  const panel=document.querySelector('.panel');
+  document.addEventListener('mousemove',e=>{
+    if(innerWidth>700){
+      let x=(innerWidth/2-e.clientX)/70,y=(innerHeight/2-e.clientY)/70;
+      panel.style.transform=`perspective(1200px) rotateY(${x}deg) rotateX(${y}deg)`;
+    }
+  });
+  document.addEventListener('mouseleave',()=>panel.style.transform='none');
+
+  const music=document.getElementById('bgMusic');
+  const musicBtn=document.getElementById('musicBtn');
+  const startScreen=document.getElementById('startScreen');
+  const startBtn=document.getElementById('startBtn');
+
+  function playMusic(){
+    return new Promise(function(resolve){
+      try{
+        music.volume=0.55;
+        const p=music.play();
+        if(p && p.then){
+          p.then(function(){musicBtn.textContent='🔊';resolve();})
+           .catch(function(){musicBtn.textContent='🔈';resolve();});
+        }else{resolve();}
+      }catch(e){resolve();}
+    });
+  }
+
+  function closeStart(){ startScreen.classList.add('hide'); }
+
+  // Primary path.
+  startBtn.addEventListener('click', function(){
+    closeStart();
+    playMusic();
+  });
+  // Fallback: any click on the overlay closes it too.
+  startScreen.addEventListener('click', function(){ closeStart(); });
+  // Fallback: keyboard.
+  document.addEventListener('keydown', function(e){
+    if(!startScreen.classList.contains('hide') && (e.key==='Enter'||e.key===' ')){
+      closeStart();
+      playMusic();
+    }
+  });
+
+  musicBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    if(music.paused){
+      playMusic();
+    }else{
+      music.pause();
+      musicBtn.textContent='🔈';
+    }
+  });
+})();
+</script>
+</body>
+</html>
