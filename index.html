@@ -196,6 +196,7 @@
       justify-content: center;
       box-shadow: 0 0 20px rgba(255, 94, 58, 0.3);
       margin-bottom: 14px;
+      overflow: hidden;
     }
 
     .dev-avatar {
@@ -278,7 +279,7 @@
       <strong>I'm Denesh, Founder of this application.</strong>
     </p>
 
-    <!-- Download Button (Replacing Enter the Community) -->
+    <!-- Download APK Button -->
     <a href="cheyyar-hub.apk" download="cheyyar-hub.apk" class="btn-download">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -296,7 +297,7 @@
     <!-- Developer Profile Card -->
     <div class="dev-card">
       <div class="dev-avatar-wrap">
-        <!-- Ungaloda Photo Ingay D-ku pathila varum -->
+        <!-- PNG Image -->
         <img src="developer.png" alt="Denesh" class="dev-avatar">
       </div>
       <div class="dev-name">Denesh</div>
@@ -328,7 +329,6 @@
       }
     }
 
-    // Auto-try play on first click anywhere
     document.body.addEventListener('click', function() {
       if (!isPlaying) {
         audio.play().then(() => { isPlaying = true; }).catch(() => {});
