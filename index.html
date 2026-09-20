@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cheyyar Hub</title>
+  <title>CheyyarHub</title>
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <style>
     * {
       margin: 0;
@@ -171,13 +171,21 @@
       margin-bottom: 22px;
     }
 
+    /* Team grid — holds both developer cards, evenly spaced */
+    .team-grid {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
     /* Developer Card */
     .dev-card {
       width: 100%;
       background: rgba(22, 27, 38, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 24px;
-      padding: 30px 20px 24px;
+      padding: 28px 20px 22px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -197,6 +205,7 @@
       box-shadow: 0 0 20px rgba(255, 94, 58, 0.3);
       margin-bottom: 14px;
       overflow: hidden;
+      flex-shrink: 0;
     }
 
     .dev-avatar {
@@ -206,6 +215,20 @@
       object-fit: cover;
       display: block;
       background: #1e293b;
+    }
+
+    /* Fallback circle for a developer with no photo yet */
+    .dev-avatar-fallback {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1e293b;
+      color: #f1f5f9;
+      font-size: 1.6rem;
+      font-weight: 700;
     }
 
     .dev-name {
@@ -265,7 +288,7 @@
   </div>
 
   <div class="main-wrapper">
-    
+
     <!-- App Brand -->
     <div class="logo-container">
       <img src="logo.png" alt="Cheyyar Hub Logo" class="app-logo">
@@ -289,33 +312,40 @@
       DOWNLOAD APK
     </a>
 
-    <!-- Team / Developer Section -->
+    <!-- Team Section -->
     <div class="section-tag">The Team</div>
-    <h2 class="section-title">Meet the Developer</h2>
-    <div class="section-subtitle">Built with passion, solo.</div>
+    <h2 class="section-title">Meet the Team</h2>
+    <div class="section-subtitle">Built with passion.</div>
 
-    <!-- Developer Profile Card -->
-    <div class="dev-card">
-      <div class="dev-avatar-wrap">
-        <!-- PNG Image -->
-        <img src="developer.png" alt="Denesh" class="dev-avatar">
-      </div>
-      <div class="dev-name">Denesh</div>
-      <div class="dev-role">Founder • Developer</div>
-      <div class="social-links">
-        <a href="https://instagram.com/devilcoderx_" target="_blank">Instagram</a>
-        <a href="https://github.com/Denesh-developer" target="_blank">GitHub</a>
-      </div><br>
+    <div class="team-grid">
+
+      <!-- Developer 1 -->
+      <div class="dev-card">
         <div class="dev-avatar-wrap">
-        <!-- PNG Image -->
-        <img src="#" alt="D" class="dev-avatar">
+          <img src="developer.png" alt="Denesh" class="dev-avatar">
+        </div>
+        <div class="dev-name">Denesh</div>
+        <div class="dev-role">Founder • Developer</div>
+        <div class="social-links">
+          <a href="https://instagram.com/devilcoderx_" target="_blank">Instagram</a>
+          <a href="https://github.com/Denesh-developer" target="_blank">GitHub</a>
+        </div>
       </div>
-      <div class="dev-name">Deepalakshmi</div>
-      <div class="dev-role">Backend Developer</div>
-      <div class="social-links">
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">GitHub</a>
+
+      <!-- Developer 2 -->
+      <div class="dev-card">
+        <div class="dev-avatar-wrap">
+          <img src="deepa.jpg" alt="Deepa" class="dev-avatar">
+          <div class="dev-avatar-fallback">D</div>
+        </div>
+        <div class="dev-name">Deepalakshmi</div>
+        <div class="dev-role">Backend Developer</div>
+        <div class="social-links">
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">GitHub</a>
+        </div>
       </div>
+
     </div>
 
     <!-- Footer -->
